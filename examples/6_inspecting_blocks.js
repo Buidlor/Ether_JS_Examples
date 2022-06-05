@@ -1,10 +1,11 @@
 const { ethers } = require("ethers");
+let secret = require("../secret.json");
 
-const INFURA_ID = ''
-const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${INFURA_ID}`)
+
+const provider = new ethers.providers.JsonRpcProvider(`https://speedy-nodes-nyc.moralis.io/${secret.moralisNodeId}/eth/mainnet`)
 
 const main = async () => {
-    const block = await provider.getBlockNumber()
+    const block = await provider.getBlockNumber() //get current block number.
 
     console.log(`\nBlock Number: ${block}\n`)
 
